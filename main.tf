@@ -29,6 +29,6 @@ resource "helm_release" "test" {
   name      = "test-chart${random_id.name.hex}"
   #repository = "https://charts.bitnami.com/bitnami"
   chart      = "https://charts.bitnami.com/bitnami/redis-10.7.16.tgz"
-  version    = "6.0.1"
+  #version    = "6.0.1"
   wait       = false
 }
