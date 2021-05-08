@@ -10,7 +10,7 @@ data "ibm_container_cluster_config" "clusterConfig" {
 
 provider "helm" {
   #version        = "0.10.4"
-  version         = "2.1.2"
+  version         = "0.10.4"
   kubernetes {
     config_path = "${data.ibm_container_cluster_config.clusterConfig.config_file_path}"
   }
