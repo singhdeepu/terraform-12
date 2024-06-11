@@ -3,21 +3,21 @@ provider "ibm" {
 }
 
 data "ibm_container_cluster_config" "clusterConfig" {
-  cluster_name_id   = var.cluster_id
-  resource_group_id = var.resource_group_id
+  cluster_name_id   = "${var.cluster_id}"
+  resource_group_id = "${var.resource_group_id}"
   config_dir        = "."
 }
 
 provider "helm" {
   #version        = "0.10.4"
-  version         = "2.1.2"
+  version         = "0.10.4"
   kubernetes {
-    config_path = data.ibm_container_cluster_config.clusterConfig.config_file_path
+    config_path = "${data.ibm_container_cluster_config.clusterConfig.config_file_path}"
   }
 }
 
 output "cluster_config_path" {
-  value = data.ibm_container_cluster_config.clusterConfig.config_file_path
+  value = "${data.ibm_container_cluster_config.clusterConfig.config_file_path}"
 }
 
 
